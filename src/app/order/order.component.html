@@ -1,0 +1,133 @@
+<div class="container-fluid backColor">
+    <div class="row title" >
+        <div class="col-md-6">
+            <span class="bold TextSize">Manage  </span>
+            <span class="TitleColor"> Orders</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 message" >
+            <span style="float: left;">Successfully</span>
+            <span class="glyphicon glyphicon-remove" style="float: right;"></span>
+        </div>
+    </div>
+    <div class="contentSection">
+        <div class="row">
+            <div class="col-md-4">
+                <span class="bold">Add Order</span>
+                <!-- <span class="bold">Edit Order</span> -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-10 col-md-2">
+                <span>Date:</span>
+                <span>2021-12-22</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-10 col-md-2">
+                <span>time:</span>
+                <span>3:13 AM</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="cust-title">Customer Name:</div>
+                <div class="cust-title">Customer Address:</div>
+                <div class="cust-title">Customer Phone:</div>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="input-txt cust-input" placeholder="Enter customer name"/>
+                <input type="text" class="input-txt cust-input" placeholder="Enter customer address"/>
+                <input type="text" class="input-txt cust-input" placeholder="Enter customer phone"/>
+            </div>
+        </div>
+        <div class="row tableBox">
+            <div class="col-md-12">
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                <span>Product</span>
+                            </th>
+                            <th>
+                                <span>Qty</span>
+                            </th>
+                            <th>
+                                <span>Rate</span>
+                            </th>       
+                            <th>
+                                <span>Amount</span>
+                            </th> 
+                            <th>
+                                <span class="glyphicon glyphicon-plus action-btn"></span>
+                            </th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-md-6">
+                                <select class="col-md-12 input-txt">
+                                    <option></option>
+                                </select>
+                            </td>
+                            <td class="col-md-1">
+                                <input type="text" id="Qty" class="input-txt"/>                            
+                            </td>
+                            <td class="col-md-1">
+                                <input type="text" class="input-txt" disabled/> 
+                            </td>
+                            <td  class="col-md-3">
+                                <input type="text" class="input-txt" disabled/> 
+                            </td>
+                            <td>
+                                <span class="glyphicon glyphicon-remove action-btn"></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-7 col-md-2" style="float: left;">
+                <div class="cust-title">Gross Ammount </div>
+                <div class="cust-title">Vat 9%</div>
+                <div class="cust-title">Discount</div>
+                <div class="cust-title">Net Amount</div>
+            </div>
+            <div class="col-md-3" style="float: left;">
+                <input type="text" class="input-txt" disabled/>
+                <input type="text" class="input-txt" disabled/>
+                <input type="text" class="input-txt" placeholder="Discount"/>
+                <input type="text" class="input-txt" disabled/>
+            </div>
+        </div>
+        <!-- <div class="row">
+            <div class="col-md-offset-7 col-md-2" style="float: left;">
+                <div class="cust-title">Gross Ammount </div>
+                <div class="cust-title">S-Charge 13%</div>
+                <div class="cust-title">Vat 10%</div>
+                <div class="cust-title">Discount</div>
+                <div class="cust-title">Net Amount</div>
+                <div class="cust-title">Paid Status</div>
+            </div>
+            <div class="col-md-3" style="float: left;">
+                <input type="text" class="input-txt" disabled/>
+                <input type="text" class="input-txt" disabled/>
+                <input type="text" class="input-txt" placeholder="Discount"/>
+                <input type="text" class="input-txt" disabled/>
+                <input type="text" class="input-txt" disabled/>
+                <select class="input-txt">
+                    <option>Paid</option>
+                </select>
+            </div>
+        </div> -->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- <input type="button" class="btn btn-sm action-btn" value="Print" style="margin-right:4px;"/> -->
+                <input type="button" class="btn btn-primary btn-sm" value="Create Order" style="margin-right:4px;"/>
+                <input type="button" class="btn btn-warning btn-sm" value="Back"/>
+            </div>
+        </div>
+    </div>
+</div>

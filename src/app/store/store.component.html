@@ -1,0 +1,121 @@
+<div class="container">
+    <div class="row">
+        <div class="modal modalBackground" id="StoreModal" [ngClass]="{'show':popAdd==true}">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal" (click)="popAdd=false">&times;</button>
+                        <h4 class="modal-title">Add Category</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form #F=ngForm>
+                        <div style="margin-bottom:13px;">
+                            <input type="hidden" name="txtId" ngModel />
+                            <span>Category Name</span>
+                            <input type="text" class="form-control" name="txtName" ngModel style="margin-top:5px;"/>
+                        </div>
+                        <div style="margin-bottom:13px;">
+                            <span>Status</span>
+                            <select class="form-control" name="ddlStatus" ngModel style="margin-top:5px;">
+                                <option value="Active" selected>Active</option>
+                                <option value="Inactive">Inactive</option>
+                            </select>
+                        </div>
+                    </form>
+                    </div>
+                    <div class="modal-footer">
+                        <input *ngIf="savePopup =='insert' " type="button" value="Save" class="btn btn-primary" data-dismiss="modal" (click)="OnSave()"  >
+                        <input *ngIf="savePopup =='update' " type="button" value="Update" class="btn btn-primary" data-dismiss="modal"  (click)="OnUpdate()"   >
+                        <input type="button" value="Close" class="btn btn-primary" data-dismiss="modal" (click)="popAdd=false"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+    </div>
+</div>
+<div class="container-fluid backColor">
+<!-- <div class="backColor"> -->
+    <div class="row title" >
+        <div class="col-md-6">
+            <span class="bold TextSize">Manage  </span><span class="TitleColor">Category </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 message" *ngIf="showMsg" >
+            <span style="float: left;">Successfully {{msg}}</span>
+            <button class="glyphicon glyphicon-remove" style="float: right;" *ngIf="showMsg" (click) = "showMsg = false"></button>
+        </div>
+    </div>
+    <div class="row " style="padding-bottom: 20px; padding-left: 15px;">  
+        <div class="col-md-4">
+            <input type="button" value="Add Store" class="btn btn-primary" (click)="popAdd=true ;savePopup='insert'" data-target="#StoreModal" data-toggle="modal"/>
+        </div>
+    </div>
+<!-- </div> -->
+<!-- border-bottom-style: outset; -->
+<div class="contentSection">
+<div class="row">
+<div class="col-md-4">
+    <span class="bold">Manage Stores</span>
+</div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <span>Show</span>
+        <input type="number" value="0" min=0 max=10> entries
+    </div>
+    <div class="col-md-offset-7 col-md-3 search-position">
+       <span >Search:</span>
+       <input type="text"  (keyup.enter)="getByName($event)"/>
+    </div>
+</div>
+<div class="row tableBox">
+    <div class="col-md-12">
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th > 
+                        <span style="float: left;">Category Name</span>
+                        <span class="glyphicon glyphicon-sort arrow-btn"></span></th>
+                    <th>
+                        <span style="float: left;">Stauts</span>
+                        <span class="glyphicon glyphicon-sort arrow-btn"></span>
+                    </th>
+                    <th>
+                        <span style="float: left;">Action</span>
+                        <span class="glyphicon glyphicon-sort arrow-btn"></span>
+                    </th>        
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let store of stores">
+                <td >{{store.name}}</td>
+                <td *ngIf = "store.status == 'Active'; "><span class = "active" > {{store.status}}</span></td>
+                <td *ngIf = "store.status == 'Inactive'; "><span class = "inactive" > {{store.status}}</span></td>
+
+                <td>
+
+                    <button class="glyphicon glyphicon-pencil action-btn" (click)="GetById(store.id)"   data-target="#StoreModal" data-toggle="modal"></button>
+                    <button class="glyphicon glyphicon-trash action-btn" style="margin-left: 5px;" (click)="OnDelete(store.id)"></button>
+                </td>
+               
+            </tr>
+         <tr *ngIf = 'stores?.length == 0'>
+              <td  colspan="3" >
+            <p style="text-align: center; margin-left: 10px;"> NO data available in table</p>
+        </td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12"><span  >showing 0 of 0 entries</span>
+        <input class="btn tableButton"   type="button" value="Previes" style="margin-left: 800px;" >
+        <!-- <span class="page"></span> -->
+        <input class="btn tableButton" type="button" value="Next">
+</div>
+</div>
+</div>
+</div>

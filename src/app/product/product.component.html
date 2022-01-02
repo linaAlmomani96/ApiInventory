@@ -1,0 +1,177 @@
+<div class="container-fluid backColor">
+    <div class="row title" >
+        <div class="col-md-6">
+            <span class="bold TextSize">Manage</span>
+            <span class="TitleColor"> Product</span>
+        </div>
+    </div>
+    <div class="contentSection">
+        <form #F="ngForm">
+        <div class="row">
+            <div class="col-md-4 sub-title">
+                <span class="">Add Product</span>
+                <!-- <span class="">Edit Product</span> -->
+            </div>
+        </div>
+        <!-- <div class="row">
+            <div class="col-md-12 sub-title">
+                <span>Image Preview:</span>
+            </div>
+        </div> -->
+        
+        <div class="row">
+           
+            <div class="col-md-12 sub-title">
+                <div>
+                    <span class="bold">Image</span>
+                    <input type="file" id="uploadImg" style="display: none;" name ="uploadImg" ngModel (change)="onFileSelected($event)" #fileUpload />
+                    <!-- <span>Update Image</span> -->
+                </div>
+                <label class="glyphicon glyphicon-tags img-btn" for="uploadImg"></label>
+                <label class="glyphicon glyphicon-folder-open img-btn" style="background-color:#337ab7; color: white;" for="uploadImg"></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <span class="bold">Product name</span>
+                </div>
+                <input type="hidden" name="txtId" ngModel>
+                <input type="text" class="input-txt" placeholder="Enter product name" name="txtName" ngModel/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <span class="bold">SKU</span>
+                </div>
+                <div>
+                    <input type="text" class="input-txt" placeholder="Enter sku" name="txtSuk" ngModel/>
+                </div>    
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <span class="bold">Price</span>
+                </div>
+                <div>
+                    <input type="text" class="input-txt" placeholder="Enter price" name="txtPrice" ngModel/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <span class="bold">Qty</span>
+                </div>
+                <div>
+                    <input type="text" class="input-txt" placeholder="Enter qty" name="txtQty" ngModel/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <span class="bold">Description</span>
+                </div>
+                <!-- <div class="" style="margin-right: 4px;"> -->
+                    <select id="fonttxt" class="action-btn "style="margin-right: 4px;" >
+                        <option> Normal text</option>
+                    </select>
+                <!-- </div> -->
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn action-btn" style="font-weight: bold;">
+                        Bold
+                    </button>
+                    <button type="button" class="btn action-btn" style="font-style: italic;">
+                        Italic
+                    </button>
+                    <button type="button" class="btn action-btn" style="text-decoration: underline;">
+                        Underline
+                    </button>
+                    <button type="button" class="btn action-btn">
+                        Small
+                    </button>
+                    <button type="button" class="btn action-btn" style="margin-left: 4px; margin-right: 4px;">,,</button>
+                    <button type="button" class="btn action-btn glyphicon glyphicon-list"></button>
+                    <button type="button" class="btn action-btn glyphicon glyphicon-th-list"></button>
+                    <button type="button" class="btn action-btn glyphicon glyphicon-indent-right"></button>
+                    <button type="button" class="btn action-btn glyphicon glyphicon-indent-left"></button>
+                    <button type="button" class="btn action-btn glyphicon glyphicon-share"  style="margin-left: 4px; margin-right: 4px;"></button>  
+                </div>
+                <div>
+                    <textarea class="input-txt" rows="3" style="height:150px" placeholder="Enter description" name="txtDescription" ngModel></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <span class="bold">Color</span>
+                <div>
+                    <select class="input-txt" name="ddlColor" ngModel>
+                        <option *ngFor ="let color of colors" [value] ="color.id">{{color.name}}</option>
+                    </select>                  
+                </div>    
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <span class="bold">Size</span>
+                <div>
+                    <select class="input-txt" name="ddlSize" ngModel >
+                        <option *ngFor = "let size of sizes" [value]="size.id">{{size.name}}</option>
+                    </select>
+                </div>    
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <span class="bold">Brand</span>
+                <div>
+                    <select class="input-txt" name="ddlBrand" ngModel>
+                        <option *ngFor = "let brand of barnds" [value] ="brand.id">{{brand.name}}</option>
+                    </select> 
+                </div>    
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <span class="bold">Category</span>
+                <div>
+                    <select class="input-txt" name="ddlCategory" ngModel>
+                        <option *ngFor ="let category of categories" [value] = "category.id">{{category.name}}</option>
+                    </select> 
+                </div>    
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <span class="bold">Store</span>
+                <div>
+                    <select class="input-txt" name="ddlStore" ngModel>
+                        <option *ngFor ="let store of stores"[value]="store.id">{{store.name}}</option>
+                    </select>
+                </div>    
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <span class="bold">Availablity</span>
+                <div>
+                    <select class="input-txt" name="ddlAvailablity" ngModel>
+                        <option value="Active">Yes</option>
+                        <option value="Inactive">No</option>
+                    </select>   
+                </div>    
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <input type="button" class="btn btn-primary btn-sm" value="Save changes" style="margin-right:4px;"(click) ="onSave()"/>
+                <input type="button" class="btn btn-warning btn-sm" value="Back" (click) ="goBack()"/>
+            </div>
+        </div>
+    </form>
+    </div>
+</div>
